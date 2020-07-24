@@ -1,8 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const db =  new sqlite3.Database('../db/views.db', (err) => {
+const db =  new sqlite3.Database('./db/views.db', (err) => {
     if (err) {
-        console.log(path.dirname());
         console.log(err)
     }
     
