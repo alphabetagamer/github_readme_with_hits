@@ -57,7 +57,9 @@ function hits(namerepo){
 }
 const final_hits=async function(namerepo){
     logger.log("In final_hits");
-    logger.log(path.resolve('../db/views.db'))    
+    logger.log(path.resolve('../db/views.db'))
+    logger.log(path.resolve('./db/views.db'))
+    logger.log(path.resolve('db/views.db'))   
 return new Promise(function(res,rej){
 const db =  new sqlite3.Database('../db/views.db', (err) => {
     if (err) {
