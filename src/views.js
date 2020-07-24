@@ -11,6 +11,12 @@ const db =  new sqlite3.Database('../db/views.db', (err) => {
   });
 function check(rows,namerepo){
     return new Promise(function(res,rej){
+        const db =  new sqlite3.Database('../db/views.db', (err) => {
+            if (err) {
+                logger.log(err)
+                logger.log(path.resolve('../db/views.db'))
+            }
+          });
     if(rows.length!=0){
         db.run("UPDATE views SET hits = hits + 1 WHERE repo ='"+namerepo+"'",(err,row)=>{
             if(err){
@@ -34,6 +40,12 @@ function check(rows,namerepo){
 }
 function hits(namerepo){
     return new Promise(function(res,rej){
+        const db =  new sqlite3.Database('../db/views.db', (err) => {
+            if (err) {
+                logger.log(err)
+                logger.log(path.resolve('../db/views.db'))
+            }
+          });
         db.all("SELECT hits FROM views WHERE repo ='"+namerepo+"'",(err,rows)=>{
             if(err){
                 logger.log("error in hits",err);
@@ -45,9 +57,14 @@ function hits(namerepo){
 }
 const final_hits=async function(namerepo){
     logger.log("In final_hits");
-        
+    logger.log(path.resolve('../db/views.db'))    
 return new Promise(function(res,rej){
-
+const db =  new sqlite3.Database('../db/views.db', (err) => {
+    if (err) {
+        logger.log(err)
+        logger.log(path.resolve('../db/views.db'))
+    }
+    });
 db.run(`CREATE TABLE IF NOT EXISTS views(id INTEGER PRIMARY KEY AUTOINCREMENT,repo TEXT UNIQUE,hits INTEGER DEFAULT 1)`,(err,pass)=>{
 if(err){
     logger.log("error in final_hits",err);
