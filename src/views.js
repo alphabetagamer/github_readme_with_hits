@@ -6,7 +6,8 @@ const db =  new sqlite3.Database('../db/views.db', (err) => {
         logger.log(err)
         logger.log(path.resolve('../db/views.db'))
     }
-    
+    logger.log(err)
+    logger.log(path.resolve('../db/views.db'))
   });
 function check(rows,namerepo){
     return new Promise(function(res,rej){
@@ -34,6 +35,8 @@ function hits(namerepo){
 })
 }
 const final_hits=async function(namerepo){
+    logger.log("In final_hits");
+        
 return new Promise(function(res,rej){
 db.run(`CREATE TABLE IF NOT EXISTS views(id INTEGER PRIMARY KEY AUTOINCREMENT,repo TEXT UNIQUE,hits INTEGER DEFAULT 1)`,(err,pass)=>{
 if(err){
@@ -43,6 +46,7 @@ if(err){
 }
 else{
     db.close()
+    logger.log("updated db sending return")
     res(hits(namerepo))
     
     // console.log("passed create")
