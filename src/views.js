@@ -1,20 +1,20 @@
 const sqlite3 = require('sqlite3').verbose();
 const { logger } = require("./utils");
 const path = require('path');
-const db =  new sqlite3.Database('../db/views.db', (err) => {
+const db =  new sqlite3.Database('views.db', (err) => {
     if (err) {
         logger.log(err)
-        logger.log(path.resolve('../db/views.db'))
+        logger.log(path.resolve('views.db'))
     }
     logger.log(err)
-    logger.log(path.resolve('../db/views.db'))
+    logger.log(path.resolve('views.db'))
   });
 function check(rows,namerepo){
     return new Promise(function(res,rej){
-        const db =  new sqlite3.Database('../db/views.db', (err) => {
+        const db =  new sqlite3.Database('views.db', (err) => {
             if (err) {
                 logger.log(err)
-                logger.log(path.resolve('../db/views.db'))
+                logger.log(path.resolve('views.db'))
             }
           });
     if(rows.length!=0){
@@ -40,10 +40,10 @@ function check(rows,namerepo){
 }
 function hits(namerepo){
     return new Promise(function(res,rej){
-        const db =  new sqlite3.Database('../db/views.db', (err) => {
+        const db =  new sqlite3.Database('views.db', (err) => {
             if (err) {
                 logger.log(err)
-                logger.log(path.resolve('../db/views.db'))
+                logger.log(path.resolve('views.db'))
             }
           });
         db.all("SELECT hits FROM views WHERE repo ='"+namerepo+"'",(err,rows)=>{
@@ -57,16 +57,13 @@ function hits(namerepo){
 }
 const final_hits=async function(namerepo){
     logger.log("In final_hits");
-    logger.log(path.resolve('..../db/views.db'))
-    logger.log(path.resolve('.../db/views.db'))
-    logger.log(path.resolve('../db/views.db'))
-    logger.log(path.resolve('./db/views.db'))
-    logger.log(path.resolve('db/views.db'))   
+    logger.log(path.resolve('views.db'))  
+    logger.log(path.resolve('.')) 
 return new Promise(function(res,rej){
-const db =  new sqlite3.Database('../db/views.db', (err) => {
+const db =  new sqlite3.Database('views.db', (err) => {
     if (err) {
         logger.log(err)
-        logger.log(path.resolve('../db/views.db'))
+        logger.log(path.resolve('views.db'))
     }
     });
 db.run(`CREATE TABLE IF NOT EXISTS views(id INTEGER PRIMARY KEY AUTOINCREMENT,repo TEXT UNIQUE,hits INTEGER DEFAULT 1)`,(err,pass)=>{
