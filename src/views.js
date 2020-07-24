@@ -57,6 +57,8 @@ function hits(namerepo){
 }
 const final_hits=async function(namerepo){
     logger.log("In final_hits");
+    logger.log(path.resolve('..../db/views.db'))
+    logger.log(path.resolve('.../db/views.db'))
     logger.log(path.resolve('../db/views.db'))
     logger.log(path.resolve('./db/views.db'))
     logger.log(path.resolve('db/views.db'))   
