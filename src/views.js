@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const db =  new sqlite3.Database('./db/views.db', (err) => {
+const db =  new sqlite3.Database('../db/views.db', (err) => {
     if (err) {
         console.log(err)
     }
@@ -36,10 +36,11 @@ return new Promise(function(res,rej){
 db.run(`CREATE TABLE IF NOT EXISTS views(id INTEGER PRIMARY KEY AUTOINCREMENT,repo TEXT UNIQUE,hits INTEGER DEFAULT 1)`,(err,pass)=>{
 if(err){
     // console.log(err);
+    db.close()
     res(-1)
 }
 else{
-
+    db.close()
     res(hits(namerepo))
     
     // console.log("passed create")
