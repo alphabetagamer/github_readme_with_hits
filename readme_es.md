@@ -212,8 +212,4 @@ No obstante, si estás utilizando este proyecto y estás feliz con él o simplem
 
 ¡Gracias! :heart:
 
----
 
-¡Las contribuciones son bienvenidas! <3
-
-Hecho con :heart: y JavaScript.
