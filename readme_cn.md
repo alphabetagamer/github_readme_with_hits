@@ -211,7 +211,3 @@ Endpoint: `api/pin?username=anuraghazra&repo=github-readme-stats`
 谢谢！ :heart:
 
 ---
-
-欢迎贡献！ <3
-
-用 :heart: 发电，用 JavaScript 制作。
